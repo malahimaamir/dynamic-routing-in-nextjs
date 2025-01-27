@@ -11,7 +11,7 @@ import { TiStarFullOutline } from "react-icons/ti";
 export default function Details() {
   const [dynamicData, setDynamicData] = useState<Record<string, any> | null>();
 
-  const [imageUrl, setImageUrl] = useState<string>();
+  
 
   const pathname: string | null = usePathname();
   const id = pathname?.split("/")[2];
@@ -21,7 +21,7 @@ export default function Details() {
       const res = await axios.get(`${process.env.BASE_URL}/products/${id}`);
       if (res?.status === 200 && res?.data) {
         setDynamicData(res?.data);
-        setImageUrl(res?.data?.images[0]);
+        
       }
 
       console.log("api data", res);
@@ -47,7 +47,7 @@ export default function Details() {
 
   useEffect(() => {
     fetchProductDetails();
-  });
+  },[""]);
   return (
     <>
       {dynamicData && (
