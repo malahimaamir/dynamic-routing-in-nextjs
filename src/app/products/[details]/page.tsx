@@ -1,12 +1,12 @@
 "use client";
 import toast, { Toaster } from "react-hot-toast";
 import { usePathname } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Grid from "@mui/material/Grid2";
 import { TiStarFullOutline } from "react-icons/ti";
-import { Icon } from "next/dist/lib/metadata/types/metadata-types";
+
 
 export default function Details() {
   const [dynamicData, setDynamicData] = useState<Record<string, any> | null>();
@@ -47,7 +47,7 @@ export default function Details() {
 
   useEffect(() => {
     fetchProductDetails();
-  }, []);
+  });
   return (
     <>
       {dynamicData && (
